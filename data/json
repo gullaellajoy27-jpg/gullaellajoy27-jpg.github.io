@@ -1,0 +1,25 @@
+{
+    "name": "Ella Joy Q. Gulla",
+    "title": "Networking | Student",
+    "profile": "profile.jpg",
+    "description": "Passionate about technology, design, and solving problems. Learning, creating, and growing one project at a time. 🌻",
+    "about": "Hi! I'm Ella Joy Q. Gulla, an IT student eager to learn, connect, and grow with like-minded people. I believe great things happen when we share ideas and support each other. I'd love to connect with fellow learners, developers, and tech enthusiasts.",
+    "school": "Nueva Vizcaya State University",
+    "course": "Bachelor of Science in Information Technology",
+    "skills": [
+        "🌐 Computer Networks",
+        "🔧 Troubleshooting"
+    ],
+    "projects": [
+        {
+            "name": "Personal Portfolio",
+            "description": "A responsive website to introduce myself and showcase my skills and projects."
+        }
+    ],
+    "contact": {
+        "email": "gullaellajoy27@gmail.com",
+        "github": "https://github.com/yourusername",
+        "location": "Dupax del Norte, Nueva Vizcaya, Philippines"
+    },
+    "year": 2026
+}
