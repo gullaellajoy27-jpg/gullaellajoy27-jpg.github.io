@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ella Gulla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #eab308;
+            --secondary: #fef08a;
+            --dark: #365314;
+            --light: #fefce8;
+            --accent: #fef9c3;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: var(--dark);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h2 { 
+            color: var(--primary); 
+            font-size: 1.3rem;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--secondary), var(--light));
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 5px solid var(--primary);
+            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.35);
+            background-color: #fff;
+        }
+
+        .hero h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--dark); 
+        }
+
+        .hero h3 { 
+            color: var(--dark); 
+            font-weight: 500; 
+            margin-bottom: 1rem; 
+            opacity: 0.85;
+            font-size: 1.2rem;
+        }
+
+        .hero p { 
+            max-width: 550px; 
+            margin: 0 auto 2rem; 
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover { 
+            background: #ca8a04;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(202, 138, 4, 0.3);
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            color: var(--dark);
+        }
+
+        #about p {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item, .project-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(234, 179, 8, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-item:hover, .project-card:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(234, 179, 8, 0.15);
+        }
+
+        .skill-item { 
+            text-align: center; 
+            font-weight: 600; 
+            color: var(--dark);
+            font-size: 1.1rem;
+            padding: 2rem;
+        }
+
+        .project-card h3 { 
+            color: var(--dark); 
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            margin-bottom: 0.5rem;
+            color: #57534e;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(234, 179, 8, 0.1);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.9rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #fde047;
+            border-radius: 6px;
+            background: var(--light);
+            font-size: 1rem;
+        }
+
+        form input:focus, form textarea:focus { 
+            outline: none; 
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.15);
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        button:hover { background: #ca8a04; }
+
+        .contact-info {
+            text-align: center; 
+            margin-top: 1.5rem; 
+            color: var(--dark);
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+
+            nav ul { 
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+            }
+
+            .hero h1 { font-size: 1.9rem; }
+            .profile-pic { width: 140px; height: 140px; }
+
+            section {
+                padding: 3rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <h2>🌻 MyPortfolio</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+    <section id="home" class="hero">
+        <img src="images/1000119325.jpg" alt="Your Profile Photo" class="profile-pic">
+        <h1>Ella Joy Q. Gulla</h1>
+        <h3>Networking | Student</h3>
+        <p>Passionate about technology, design, and solving problems. Learning, creating, and growing one project at a time. 🌻</p>
+        <a href="#projects" class="btn">View My Projects</a>
+    </section>
+
+   
+    <section id="about">
+        <h2>🌻 About Me</h2>
+        <p>Hi! I'm Ella Joy Q. Gulla, an IT student eager to learn, connect, and grow with like-minded people. I believe great things happen when we share ideas and support each other. I'd love to connect with fellow learners, developers, and tech enthusiasts.</p>
+        <p><strong>🏫 School:</strong> Nueva Vizcaya State University</p>
+        <p><strong>📚 Course:</strong> e.g., Bachelor of Science in Information Technology</p>
+        
+    </section>
+
+    
+    <section id="skills">
+        <h2>✨ My Skills</h2>
+        <div class="grid">
+            <div class="skill-item">🌐 Computer Networks</div>
+            <div class="skill-item">🔧 Troubleshooting</div>
+        </div>
+    </section>
+
+    
+    <section id="projects">
+        <h2>📁 My Projects</h2>
+        <div class="grid">
+            <div class="project-card">
+                <h3>Personal Portfolio</h3>
+                <p>A responsive website to introduce myself and showcase my skills and projects.</p>
+        </div>
+    </section>
+
+    
+    <section id="contact">
+        <h2>✉️ Contact Me</h2>
+        <form action="#" method="POST">
+            <input type="text" placeholder="Your Full Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <textarea placeholder="Write your message here..." required></textarea>
+            <button type="submit">Send Message ✉️</button>
+        </form>
+        <div class="contact-info">
+            <p><strong>Email:</strong> gullaellajoy27@gmail.com</p>
+            <p><strong>GitHub:</strong> github.com/yourusername</p>
+            <p><strong>Location:</strong> Dupax del Norte, Nueva Vizcaya, Philippines</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ella Joy Q. Gulla. All Rights Reserved.</p>
+        <p>Made with 💛 and lots of 🌻</p>
+    </footer>
+</body>
+</html>
